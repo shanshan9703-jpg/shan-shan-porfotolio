@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shan Shan — Portofolio Siswa Kelas XII</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Fonts & Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#1E293B',
+                            900: '#0F172A',
+                        },
+                        indigoSoft: {
+                            50: '#EEF2FF',
+                            100: '#E0E7FF',
+                            600: '#4F46E5',
+                            700: '#4338CA',
+                        },
+                        emeraldAccent: {
+                            50: '#ECFDF5',
+                            100: '#D1FAE5',
+                            500: '#10B981',
+                            600: '#059669',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Minimal Custom CSS for Scroll Reveal & Glassmorphism -->
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8FAFC;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-indigo-600 selection:text-white overflow-x-hidden">
+
+    <!-- ==================== 1. HEADER / NAVIGASI ==================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-40 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-slate-200/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo / Nama -->
+                <a href="#" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-slate-900 flex items-center justify-center text-white font-heading font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-lg sm:text-xl text-slate-900 tracking-tight block leading-none">Shan Shan</span>
+                        <span class="text-[11px] font-medium text-indigo-600 tracking-wider uppercase">Kelas XII</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#tentang" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Tentang</a>
+                    <a href="#proyek" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Proyek</a>
+                    <a href="#keahlian" class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Keahlian</a>
+                    <a href="#kontak" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-700 transition-colors shadow-sm">
+                        Kontak
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-lg">
+            <a href="#tentang" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Tentang</a>
+            <a href="#proyek" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Proyek</a>
+            <a href="#keahlian" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Keahlian</a>
+            <a href="#kontak" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium bg-indigo-600 text-white text-center mt-2">Kontak</a>
+        </div>
+    </header>
+
+    <!-- ==================== 2. HERO SECTION ==================== -->
+    <section class="relative pt-28 pb-20 sm:pt-36 sm:pb-28 lg:pt-44 lg:pb-32 overflow-hidden">
+        <!-- Decorative Background Blobs -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-full pointer-events-none -z-10">
+            <div class="absolute top-12 right-4 w-72 h-72 sm:w-96 sm:h-96 bg-indigo-200/40 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-4 left-4 w-64 h-64 sm:w-80 sm:h-80 bg-emerald-200/40 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Text Column -->
+                <div class="lg:col-span-7 text-center lg:text-left reveal active">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs sm:text-sm font-semibold mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Siswa Kelas XII • Web & Data Automation Enthusiast
+                    </div>
+                    
+                    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.15] mb-6">
+                        Halo, saya <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-600">Shan Shan</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8">
+                        Menggabungkan kreativitas desain, pengelolaan data terstruktur, dan pengembangan aplikasi web praktis berbasis <strong class="font-semibold text-slate-800">Google Apps Script & Google Sheets</strong>.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#proyek" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-indigo-600 text-white font-semibold text-sm sm:text-base hover:bg-indigo-700 transition-all shadow-md shadow-indigo-600/20 flex items-center justify-center gap-2">
+                            <span>Lihat Proyek Saya</span>
+                            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#kontak" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-slate-800 border border-slate-200 font-semibold text-sm sm:text-base hover:border-emerald-400 hover:bg-emerald-50/40 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="mail" class="w-4 h-4 text-emerald-600"></i>
+                            <span>Hubungi Saya</span>
+                        </a>
+                    </div>
+
+                    <!-- Mini Highlights -->
+                    <div class="mt-10 pt-8 border-t border-slate-200/80 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-heading font-bold text-2xl text-slate-900">4+</p>
+                            <p class="text-xs text-slate-500">Proyek Selesai</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-bold text-2xl text-indigo-600">Apps Script</p>
+                            <p class="text-xs text-slate-500">& Google Sheets</p>
+                        </div>
+                        <div>
+                            <p class="font-heading font-bold text-2xl text-emerald-600">Kelas XII</p>
+                            <p class="text-xs text-slate-500">Mobile-First UI</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Card Column -->
+                <div class="lg:col-span-5 reveal">
+                    <div class="relative mx-auto max-w-md">
+                        <!-- Accent Backdrop -->
+                        <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-indigo-600 to-emerald-500 opacity-15 blur-lg"></div>
+                        
+                        <div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-xl">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-heading font-bold text-xl">
+                                        SS
+                                    </div>
+                                    <div>
+                                        <h2 class="font-heading font-bold text-slate-900">Shan Shan</h2>
+                                        <p class="text-xs text-slate-500">Siswa Kelas XII • Web & Data</p>
+                                    </div>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
+                                    Siap Kolaborasi
+                                </span>
+                            </div>
+
+                            <!-- Simulated Dashboard Preview -->
+                            <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                <div class="flex items-center justify-between text-xs font-medium text-slate-500">
+                                    <span>Arsitektur Sistem</span>
+                                    <span class="text-indigo-600 font-semibold">Web + Cloud DB</span>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl border border-slate-200/70 flex items-center gap-3">
+                                    <div class="p-2 rounded-lg bg-indigo-50 text-indigo-600">
+                                        <i data-lucide="code-2" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800">Google Apps Script (kode.gs)</p>
+                                        <p class="text-[11px] text-slate-500">Logika backend & Web App deployment</p>
+                                    </div>
+                                </div>
+                                <div class="p-3 bg-white rounded-xl border border-slate-200/70 flex items-center gap-3">
+                                    <div class="p-2 rounded-lg bg-emerald-50 text-emerald-600">
+                                        <i data-lucide="table-properties" class="w-4 h-4"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800">Google Sheets & MS Office</p>
+                                        <p class="text-[11px] text-slate-500">Database real-time, laporan Word & Excel</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 flex items-center justify-between text-xs text-slate-500">
+                                <span class="flex items-center gap-1.5">
+                                    <i data-lucide="smartphone" class="w-4 h-4 text-indigo-600"></i>
+                                    Mobile-First Design
+                                </span>
+                                <span class="flex items-center gap-1.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                                    Teruji di Lingkungan Nyata
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 3. TENTANG SAYA (ABOUT ME) ==================== -->
+    <section id="tentang" class="py-20 bg-white border-y border-slate-200/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+                <div class="lg:col-span-5">
+                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">Tentang Saya</span>
+                    <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2 mb-5 leading-tight">
+                        Membangun Solusi Digital yang Praktis & Terstruktur
+                    </h2>
+                    <div class="w-16 h-1.5 bg-emerald-500 rounded-full mb-6"></div>
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                        Halo! Saya <strong class="text-slate-900 font-semibold">Shan Shan</strong>, siswa Kelas XII dengan antusiasme tinggi dalam mengembangkan solusi digital sederhana namun berdampak nyata untuk mempermudah aktivitas sehari-hari.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-7 space-y-5">
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Saya senang merancang sistem yang menyelesaikan masalah operasional sehari-hari—mulai dari <span class="font-semibold text-slate-900">administrasi uang kas kelas, manajemen jadwal sekolah, pencatatan operasional usaha Food & Beverage (F&B)</span>, hingga <span class="font-semibold text-slate-900">otomasi rekapitulasi nilai PTS</span> menggunakan Google Apps Script dan Google Sheets.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Selain membangun aplikasi berbasis web yang ramah tampilan ponsel, saya juga terampil mengolah dan menyajikan dokumen portofolio maupun laporan administrasi lintas format secara rapi melalui <span class="font-semibold text-slate-900">Web, Microsoft Word, dan Microsoft Excel</span>.
+                    </p>
+
+                    <!-- 4 Ringkas Stat Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="folder-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-slate-900">4+ Proyek Web Selesai</h3>
+                                <p class="text-xs text-slate-500">Solusi nyata untuk sekolah & F&B</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="database" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-slate-900">Google Apps Script & Sheets</h3>
+                                <p class="text-xs text-slate-500">Backend cloud & otomasi real-time</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="file-spreadsheet" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-slate-900">MS Word & Excel</h3>
+                                <p class="text-xs text-slate-500">Dokumentasi & olah data terstruktur</p>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="smartphone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-bold text-sm text-slate-900">Mobile-First Design</h3>
+                                <p class="text-xs text-slate-500">Antarmuka responsif & nyaman di HP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. PROYEK UNGGULAN (FEATURED PROJECTS) ==================== -->
+    <section id="proyek" class="py-20 sm:py-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-indigo-600">Portofolio Karya</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-slate-900 mt-2 mb-4">Proyek Unggulan</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    Pilih kategori di bawah untuk menyaring karya, atau klik <strong class="text-slate-800 font-medium">"Detail Proyek"</strong> untuk melihat arsitektur teknologi dan cara kerjanya.
+                </p>
+            </div>
+
+            <!-- Interactive Category Filter -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 reveal" id="filter-buttons">
+                <button data-filter="all" class="filter-btn active px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-600 text-white transition-all shadow-sm">
+                    Semua
+                </button>
+                <button data-filter="Aplikasi Web" class="filter-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 transition-all">
+                    Aplikasi Web
+                </button>
+                <button data-filter="Manajemen Data" class="filter-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 transition-all">
+                    Manajemen Data
+                </button>
+                <button data-filter="Otomasi" class="filter-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 transition-all">
+                    Otomasi
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8" id="projects-grid">
+                
+                <!-- Project 1: Aplikasi Uang Kas Kelas -->
+                <article data-categories="Aplikasi Web,Manajemen Data" class="project-card group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-indigo-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                <i data-lucide="wallet" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold">Aplikasi Web</span>
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold">Manajemen Data</span>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-indigo-600 transition-colors mb-2.5">
+                            Aplikasi Uang Kas Kelas
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Aplikasi web pencatatan pemasukan dan pengeluaran kas kelas secara real-time dengan fitur pilihan daftar 10 siswa, terintegrasi langsung dengan Google Sheets & Google Apps Script, serta dioptimalkan untuk akses melalui ponsel.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Apps Script</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">10 Siswa</span>
+                        </div>
+                        <button type="button" onclick="openProjectModal(0)" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 shrink-0">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 2: Jadwal Sekolah Asoka & Pelacakan Saldo -->
+                <article data-categories="Aplikasi Web,Manajemen Data" class="project-card group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-indigo-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold">Aplikasi Web</span>
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold">Manajemen Data</span>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-indigo-600 transition-colors mb-2.5">
+                            Jadwal Sekolah Asoka & Pelacakan Saldo
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Sistem informasi berbasis web untuk pengelolaan jadwal sekolah Asoka yang dilengkapi fitur input data langsung dari web dan pemantauan saldo akhir secara otomatis.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Web Input</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Saldo Otomatis</span>
+                        </div>
+                        <button type="button" onclick="openProjectModal(1)" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 shrink-0">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 3: Sistem Manajemen Jadwal & Data F&B -->
+                <article data-categories="Aplikasi Web,Otomasi" class="project-card group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-indigo-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                <i data-lucide="utensils" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold">Aplikasi Web</span>
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold">Otomasi</span>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-indigo-600 transition-colors mb-2.5">
+                            Sistem Manajemen Jadwal & Data F&B
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Aplikasi web pengelolaan operasional, penjadwalan, dan pencatatan data usaha Food & Beverage (F&B) menggunakan backend Google Sheets dan Apps Script.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Operasional F&B</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Google Sheets</span>
+                        </div>
+                        <button type="button" onclick="openProjectModal(2)" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 shrink-0">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Project 4: Alat Pembaruan & Rekap Nilai PTS -->
+                <article data-categories="Otomasi,Manajemen Data" class="project-card group bg-white rounded-3xl p-6 sm:p-7 border border-slate-200/90 hover:border-indigo-400 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal">
+                    <div>
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+                            </div>
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-semibold">Otomasi</span>
+                                <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-700 text-[11px] font-semibold">Manajemen Data</span>
+                            </div>
+                        </div>
+                        <h3 class="font-heading font-bold text-xl text-slate-900 group-hover:text-indigo-600 transition-colors mb-2.5">
+                            Alat Pembaruan & Rekap Nilai PTS
+                        </h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Utilitas berbasis Google Sheets dan Apps Script untuk memperbarui dan menyelaraskan tampilan data nilai PTS lama ke format baru secara cepat dan akurat.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Migrasi Format</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-[11px] font-medium">Rekap PTS</span>
+                        </div>
+                        <button type="button" onclick="openProjectModal(3)" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-indigo-600 text-white text-xs font-semibold transition-colors inline-flex items-center gap-1.5 shrink-0">
+                            <span>Detail Proyek</span>
+                            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 5. KEAHLIAN (SKILLS) ==================== -->
+    <section id="keahlian" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Kompetensi Utama</span>
+                <h2 class="font-heading font-bold text-3xl sm:text-4xl text-white mt-2 mb-4">Keahlian</h2>
+                <p class="text-slate-300 text-sm sm:text-base">
+                    Kombinasi keterampilan pengembangan antarmuka web, otomasi basis data cloud, serta penyusunan dokumentasi administrasi profesional.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 reveal">
+                <!-- Card 1: Pengembangan Web -->
+                <div class="p-7 rounded-3xl bg-slate-800/80 border border-slate-700/80 hover:border-indigo-500 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="code-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-4">Pengembangan Web</h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>HTML5</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>CSS3</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>JavaScript</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>Responsive Mobile UI</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Otomasi & Database -->
+                <div class="p-7 rounded-3xl bg-slate-800/80 border border-slate-700/80 hover:border-emerald-500 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-4">Otomasi & Database</h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>Google Apps Script (<code class="px-1.5 py-0.5 rounded bg-slate-700 text-emerald-300 text-xs">kode.gs</code>)</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>Google Sheets Integration</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>Web App Deployment</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Dokumentasi & Administrasi -->
+                <div class="p-7 rounded-3xl bg-slate-800/80 border border-slate-700/80 hover:border-indigo-500 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-text" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-white mb-4">Dokumentasi & Administrasi</h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>Microsoft Word</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            <span>Microsoft Excel</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+                            <span>Penyusunan Laporan & Portofolio</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 6. KONTAK (CONTACT) ==================== -->
+    <section id="kontak" class="py-20 sm:py-24 bg-slate-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-slate-200/90 shadow-xl overflow-hidden reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    <!-- Contact Info Side -->
+                    <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white p-8 sm:p-10 flex flex-col justify-between">
+                        <div>
+                            <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold mb-4">
+                                Kontak & Kolaborasi
+                            </span>
+                            <h2 class="font-heading font-bold text-2xl sm:text-3xl mb-4 leading-snug">
+                                Mari Berdiskusi dengan Shan Shan
+                            </h2>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                                Tertarik membuat sistem pencatatan berbasis Google Sheets, aplikasi web praktis, atau butuh bantuan penyusunan dokumen portofolio? Kirim pesan sekarang!
+                            </p>
+
+                            <div class="space-y-4 text-sm">
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400 shrink-0">
+                                        <i data-lucide="user-check" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400">Profil</p>
+                                        <p class="font-medium">Shan Shan — Kelas XII</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-indigo-300 shrink-0">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400">Email</p>
+                                        <p class="font-medium">shanshan.xii@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3.5">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-emerald-400 shrink-0">
+                                        <i data-lucide="phone" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-slate-400">WhatsApp</p>
+                                        <p class="font-medium">+62 812-3456-7890</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Copy Action Buttons -->
+                        <div class="mt-10 pt-6 border-t border-white/10">
+                            <p class="text-xs text-slate-400 mb-3">Salin Info Kontak Cepat:</p>
+                            <div class="flex flex-wrap gap-2.5">
+                                <button type="button" onclick="copyContact('shanshan.xii@gmail.com', 'Alamat email')" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold transition-colors flex items-center gap-2">
+                                    <i data-lucide="copy" class="w-4 h-4"></i> Salin Email
+                                </button>
+                                <button type="button" onclick="copyContact('+62 812-3456-7890', 'Nomor WhatsApp')" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors flex items-center gap-2">
+                                    <i data-lucide="copy" class="w-4 h-4"></i> Salin WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Contact Form -->
+                    <div class="lg:col-span-7 p-8 sm:p-10">
+                        <h3 class="font-heading font-bold text-xl text-slate-900 mb-6">Kirim Pesan</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="sender-name" class="block text-xs font-semibold text-slate-700 mb-1.5">Nama</label>
+                                <input type="text" id="sender-name" required placeholder="Masukkan nama lengkap Anda" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all">
+                            </div>
+
+                            <div>
+                                <label for="sender-contact" class="block text-xs font-semibold text-slate-700 mb-1.5">Email / WhatsApp</label>
+                                <input type="text" id="sender-contact" required placeholder="Contoh: nama@email.com atau 0812xxxx" class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all">
+                            </div>
+
+                            <div>
+                                <label for="sender-message" class="block text-xs font-semibold text-slate-700 mb-1.5">Pesan</label>
+                                <textarea id="sender-message" rows="4" required placeholder="Tuliskan pesan, kebutuhan aplikasi web, atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm shadow-md shadow-indigo-600/20 transition-all flex items-center justify-center gap-2">
+                                <span>Kirim Pesan Sekarang</span>
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                            </button>
+                        </form>
+
+                        <!-- Inline Feedback Banner (Replaces alert) -->
+                        <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600 shrink-0 mt-0.5"></i>
+                            <div>
+                                <p class="font-bold">Pesan Berhasil Dikirim!</p>
+                                <p id="feedback-detail" class="text-emerald-700 mt-0.5"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-white border-t border-slate-200 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-xs sm:text-sm text-slate-600 font-medium">
+                © 2026 Shan Shan • Kelas XII. Dibuat dengan penuh dedikasi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ==================== PROJECT DETAIL MODAL ==================== -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative transform transition-all max-h-[90vh] overflow-y-auto">
+            <button onclick="closeProjectModal()" aria-label="Tutup Modal" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <span id="modal-badge" class="inline-block px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-semibold mb-3">
+                Kategori
+            </span>
+            <h3 id="modal-title" class="font-heading font-bold text-2xl text-slate-900 mb-3 pr-6">
+                Judul Proyek
+            </h3>
+            <p id="modal-desc" class="text-slate-600 text-sm leading-relaxed mb-5">
+                Deskripsi lengkap proyek.
+            </p>
+
+            <!-- Rincian Fitur Utama -->
+            <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200/70 mb-4">
+                <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-indigo-600 mb-2.5">Fitur Utama:</h4>
+                <ul id="modal-features" class="space-y-2 text-sm text-slate-700">
+                    <!-- Populated via JS -->
+                </ul>
+            </div>
+
+            <!-- Ringkasan Cara Kerja -->
+            <div class="bg-emerald-50/70 rounded-2xl p-4 border border-emerald-200/70 mb-5">
+                <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-emerald-700 mb-1.5">Ringkasan Cara Kerja:</h4>
+                <p id="modal-workflow" class="text-xs sm:text-sm text-slate-700 leading-relaxed">
+                    <!-- Populated via JS -->
+                </p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100">
+                <div>
+                    <span class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Teknologi:</span>
+                    <div id="modal-tags" class="flex flex-wrap gap-1.5">
+                        <!-- Populated via JS -->
+                    </div>
+                </div>
+                <button onclick="closeProjectModal()" class="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-semibold hover:bg-indigo-600 transition-colors shrink-0 ml-auto">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for Copy Info -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900 text-white text-xs sm:text-sm font-medium shadow-lg">
+        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+        <span id="toast-text">Berhasil disalin!</span>
+    </div>
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Project Filter Functionality (Semua, Aplikasi Web, Manajemen Data, Otomasi)
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset active styles
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-indigo-600', 'text-white', 'shadow-sm');
+                    b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                });
+                // Set active style
+                btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                btn.classList.add('bg-indigo-600', 'text-white', 'shadow-sm');
+
+                const selectedFilter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-categories').split(',');
+                    if (selectedFilter === 'all' || categories.includes(selectedFilter)) {
+                        card.classList.remove('hidden');
+                        setTimeout(() => card.classList.add('active'), 20);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // 3. Detailed Project Modal Data & Logic
+        const projectsData = [
+            {
+                badge: "Aplikasi Web • Manajemen Data",
+                title: "Aplikasi Uang Kas Kelas",
+                desc: "Aplikasi web pencatatan pemasukan dan pengeluaran kas kelas secara real-time dengan fitur pilihan daftar 10 siswa, terintegrasi langsung dengan Google Sheets & Google Apps Script, serta dioptimalkan untuk akses melalui ponsel.",
+                features: [
+                    "Dropdown pilihan nama dari daftar 10 siswa agar input iuran cepat dan bebas salah ketik.",
+                    "Pencatatan pemasukan serta pengeluaran kas kelas secara real-time.",
+                    "Tampilan antarmuka Mobile-First yang sangat nyaman diakses langsung dari HP."
+                ],
+                workflow: "Pengguna membuka antarmuka Web App di ponsel, memilih nama siswa atau jenis transaksi pengeluaran, lalu mengirim data. Fungsi di Google Apps Script (kode.gs) langsung mencatat transaksi ke Google Sheets dan menghitung ulang total saldo kas secara otomatis.",
+                tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets"]
+            },
+            {
+                badge: "Aplikasi Web • Manajemen Data",
+                title: "Jadwal Sekolah Asoka & Pelacakan Saldo",
+                desc: "Sistem informasi berbasis web untuk pengelolaan jadwal sekolah Asoka yang dilengkapi fitur input data langsung dari web dan pemantauan saldo akhir secara otomatis.",
+                features: [
+                    "Tampilan jadwal kegiatan sekolah Asoka yang terstruktur dan mudah diakses.",
+                    "Formulir input transaksi/data langsung dari halaman web tanpa membuka spreadsheet.",
+                    "Pemantauan saldo akhir otomatis yang selalu sinkron dengan catatan terbaru."
+                ],
+                workflow: "Data jadwal dan transaksi diinput melalui form antarmuka HTML/JS, dikirim secara asinkron ke backend Google Apps Script, dan disimpan ke Google Sheets yang sekaligus mengalkulasi saldo akhir untuk ditampilkan kembali di layar.",
+                tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets"]
+            },
+            {
+                badge: "Aplikasi Web • Otomasi",
+                title: "Sistem Manajemen Jadwal & Data F&B",
+                desc: "Aplikasi web pengelolaan operasional, penjadwalan, dan pencatatan data usaha Food & Beverage (F&B) menggunakan backend Google Sheets dan Apps Script.",
+                features: [
+                    "Pengaturan jadwal kerja dan operasional harian unit Food & Beverage (F&B).",
+                    "Pencatatan data inventaris dan rekap operasional terpusat di Google Sheets.",
+                    "Akses multi-perangkat untuk mempermudah pemantauan tim di lapangan."
+                ],
+                workflow: "Antarmuka web bertindak sebagai dashboard operasional yang membaca dan menulis data jadwal maupun stok F&B ke Google Sheets melalui layanan Google Apps Script Web App secara real-time.",
+                tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets"]
+            },
+            {
+                badge: "Otomasi • Manajemen Data",
+                title: "Alat Pembaruan & Rekap Nilai PTS",
+                desc: "Utilitas berbasis Google Sheets dan Apps Script untuk memperbarui dan menyelaraskan tampilan data nilai PTS lama ke format baru secara cepat dan akurat.",
+                features: [
+                    "Pemetaan otomatis struktur data nilai Penilaian Tengah Semester (PTS) lama ke template format baru.",
+                    "Validasi dan penyelarasan tata letak nilai secara instan tanpa salin-tempel manual.",
+                    "Mengurangi risiko human-error saat rekapitulasi nilai siswa."
+                ],
+                workflow: "Skrip Google Apps Script membaca rentang data pada sheet nilai PTS format lama, memproses serta mencocokkan identitas dan skor siswa, lalu menuliskannya secara rapi ke lembar rekap format baru dalam hitungan detik.",
+                tags: ["HTML/CSS/JS", "Google Apps Script", "Google Sheets"]
+            }
+        ];
+
+        const modal = document.getElementById('project-modal');
+        const modalBadge = document.getElementById('modal-badge');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalFeatures = document.getElementById('modal-features');
+        const modalWorkflow = document.getElementById('modal-workflow');
+        const modalTags = document.getElementById('modal-tags');
+
+        function openProjectModal(index) {
+            const data = projectsData[index];
+            modalBadge.textContent = data.badge;
+            modalTitle.textContent = data.title;
+            modalDesc.textContent = data.desc;
+            modalWorkflow.textContent = data.workflow;
+
+            modalFeatures.innerHTML = data.features.map(feat => `
+                <li class="flex items-start gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-600 mt-2 shrink-0"></span>
+                    <span>${feat}</span>
+                </li>
+            `).join('');
+
+            modalTags.innerHTML = data.tags.map(tag => `
+                <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-[11px] font-semibold">${tag}</span>
+            `).join('');
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside card or pressing Escape
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeProjectModal();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                closeProjectModal();
+            }
+        });
+
+        // 4. Interactive Contact Form Handler (No alert)
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+        const feedbackDetail = document.getElementById('feedback-detail');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('sender-name').value.trim();
+            const contact = document.getElementById('sender-contact').value.trim();
+
+            feedbackDetail.textContent = `Terima kasih ${name}! Pesan Anda telah diterima dan balasan akan dikirimkan ke ${contact}.`;
+            formFeedback.classList.remove('hidden');
+            contactForm.reset();
+
+            setTimeout(() => {
+                formFeedback.classList.add('hidden');
+            }, 6000);
+        });
+
+        // 5. Copy Contact Helper (using execCommand for iframe compatibility)
+        function copyContact(textToCopy, label) {
+            const tempInput = document.createElement("input");
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            toastText.textContent = `${label} (${textToCopy}) berhasil disalin!`;
+            
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3000);
+        }
+
+        // 6. Scroll Reveal Animation Observer
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
